@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Ignite v0.5.0" />
+    <title>Home</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://www.blakeep.com/" rel="canonical" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="BLAKEEP LLC" />
+    <meta property="og:title" content="Home" />
+    <meta name="twitter:title" content="Home" />
+    <meta property="og:url" content="https://www.blakeep.com/" />
+    <meta name="twitter:domain" content="blakeep.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+  </head>
+  <body class="container">
+    <header>
+      <nav class="navbar navbar-expand-md">
+        <div class="container">
+          <a href="/" class="navbar-brand">BLAKEEP, LLC</a>
+          <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="navbar-nav mb-2 mb-md-0 col ">
+              <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+              <li class="nav-item"><a href="/support" class="nav-link">Support</a></li>
+              <li class="nav-item"><a href="/privacy-policy" class="nav-link">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div>
+      <h1>APPS</h1>
+      <img src="/images/drivelog-icon.png" alt="The Drive Experience Log app icon." class="img-fluid col-md-3" />
+      <p class="lead">Drive Experience Log</p>
+      <p>Master your driving skills and ace your DMV requirements with Drive Experience Log, the ultimate app designed for student drivers! Whether you're learning to drive or are supervising a new driver, Drive Experience Log simplifies tracking driving hours with precision and ease. Say goodbye to messy paper logs and hello to a streamlined, digital solution. <br /> Key Features: <br /> - DMV-Ready PDF Export: Generate professional PDF logs to submit directly to the DMV, showcasing your driving progress. <br /> - Multi-User Drive Logs: Track driving hours for multiple learners in one app—perfect for families or instructors. <br /> - Smart Day/Night Detection: Automatically detects sunrise and sunset times to split drives into day and night segments, ensuring accurate hour tracking. <br /> - Progress Tracking: Set personalized daytime and nighttime hour goals and watch your progress grow. <br /> - CSV Import/Export: Easily transfer your logs between devices or back them up with CSV file support. <br /> - iCloud Sync: Keep your driving data safe and accessible across all your devices with seamless cloud integration. <br /> - Quick Start/Stop Shortcuts: Log drives effortlessly with shortcuts to start and end sessions. <br /> - Notes &amp; Tags: Add notes and tags to organize drives by conditions, routes, or milestones. <br /> Drive Experience Log takes the hassle out of logging your supervised driving hours, so you can focus on what matters—becoming a confident, skilled driver. Download now and hit the road to success!</p>
+      <hr />
+      <img src="/images/crowns-score-keeper-icon.png" alt="The Crowns Score Keeper app icon." class="img-fluid col-md-3" />
+      <p class="lead">Crowns Score Keeper</p>
+      <p>This app is a scorekeeper for the game "five crowns". Add as many players as you want. Keep track of the first person to "go down". Find the winner with ease. Reset scoreboard for continuous play.</p>
+      <div class="row row-cols-1 row-cols-md-1">
+        <div class="col g-3">
+          <a href="https://apps.apple.com/us/app/crowns-score-keeper/id1541508484?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=1541508484" style="display: inline-block;"> <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1606348800" alt="Download on the App Store" style="width: 246px; height: 82px; vertical-align: middle; object-fit: contain;" /> </a> 
+        </div>
+      </div>
+      <hr />
+      <img src="/images/playnine-score-keeper-icon.png" alt="The PlayNine Scorekeeping app icon." class="img-fluid col-md-3" />
+      <p class="lead">PlayNine Scorekeeping App</p>
+      <hr />
+      <img src="/images/thanksgiving-planner-icon.png" alt="The Thanksgiving Planner app icon." class="img-fluid col-md-3" />
+      <p class="lead">Thanksgiving Planner</p>
+      <hr />
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>

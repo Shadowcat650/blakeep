@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Ignite v0.5.0" />
+    <title>Support</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://www.blakeep.com/support" rel="canonical" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="BLAKEEP LLC" />
+    <meta property="og:title" content="Support" />
+    <meta name="twitter:title" content="Support" />
+    <meta property="og:url" content="https://www.blakeep.com/support" />
+    <meta name="twitter:domain" content="blakeep.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+  </head>
+  <body class="container">
+    <header>
+      <nav class="navbar navbar-expand-md">
+        <div class="container">
+          <a href="/" class="navbar-brand">BLAKEEP, LLC</a>
+          <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="navbar-nav mb-2 mb-md-0 col ">
+              <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="/support" class="nav-link active" aria-current="page">Support</a></li>
+              <li class="nav-item"><a href="/privacy-policy" class="nav-link">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div>
+      <h1>SUPPORT</h1>
+      <img src="/images/drivelog-icon.png" alt="The Drive Experience Log app icon." class="img-fluid col-md-3" />
+      <p class="lead">Drive Experience Log</p>
+      <p>Please email <a href="mailto:support+drivelog@blakeep.com">support+drivelog@blakeep.com</a> for feedback, feature requests, or support issues.</p>
+      <hr />
+      <img src="/images/crowns-score-keeper-icon.png" alt="The Crowns Score Keeper app icon." class="img-fluid col-md-3" />
+      <p class="lead">Crowns Score Keeper</p>
+      <p>Please email <a href="mailto:support+crowns@blakeep.com">support+crowns@blakeep.com</a> for feedback, feature requests, or support issues.</p>
+      <hr />
+      <img src="/images/playnine-score-keeper-icon.png" alt="The PlayNine Scorekeeping app icon." class="img-fluid col-md-3" />
+      <p class="lead">PlayNine Scorekeeping App</p>
+      <p>Please email <a href="mailto:support+playnine@blakeep.com">support+playnine@blakeep.com</a> for feedback, feature requests, or support issues.</p>
+      <hr />
+      <img src="/images/thanksgiving-planner-icon.png" alt="The Thanksgiving Planner app icon." class="img-fluid col-md-3" />
+      <p class="lead">Thanksgiving Planner</p>
+      <p>Please email <a href="mailto:support+thanksgiving@blakeep.com">support+thanksgiving@blakeep.com</a> for feedback, feature requests, or support issues.</p>
+      <hr />
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>
